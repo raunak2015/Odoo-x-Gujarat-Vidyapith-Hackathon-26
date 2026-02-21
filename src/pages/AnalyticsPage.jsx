@@ -44,6 +44,9 @@ export default function AnalyticsPage() {
     const totalRevenue = trips.filter(t => t.status === 'Completed').reduce((s, t) => s + (t.revenue || 0), 0);
     const totalCosts = expenses.reduce((s, e) => s + e.cost, 0) + maintenance.reduce((s, m) => s + m.cost, 0);
 
+    // Utility to export any tabular data to CSV
+
+
     const exportCSV = (data, filename) => {
         if (!data.length) return;
         const headers = Object.keys(data[0]);
